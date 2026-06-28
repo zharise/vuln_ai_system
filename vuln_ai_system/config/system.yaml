@@ -1,0 +1,47 @@
+runtime:
+  project_root: "."
+  source_dir: "data/source"
+  targets_file: "data/targets/targets.txt"
+  runs_dir: "data/runs"
+  max_workers: 8
+  request_timeout_sec: 5
+  resume: true
+
+llm:
+  enabled: false
+  provider: "openai_compatible"
+  base_url: "http://127.0.0.1:8000/v1"
+  api_key: "EMPTY"
+  model: "Qwen2.5-Coder-7B-Instruct"
+  temperature: 0.0
+  max_tokens: 1024
+
+static_scan:
+  max_file_size_mb: 5
+  include_ext:
+    - ".c"
+    - ".h"
+    - ".cc"
+    - ".cpp"
+    - ".java"
+    - ".php"
+    - ".py"
+  min_confidence: "medium"
+
+dynamic_scan:
+  enabled: true
+  safe_probe_only: true
+  http_paths:
+    - "/"
+    - "/health"
+    - "/actuator/health"
+    - "/server-status"
+    - "/phpinfo.php"
+  low_noise_headers:
+    User-Agent: "AI-Vuln-SafeProbe/0.1"
+    Accept: "*/*"
+
+output:
+  source_excel_file: "source_vuln_result.xlsx"
+  online_excel_file: "online_vuln_result.xlsx"
+  jsonl_file: "findings.jsonl"

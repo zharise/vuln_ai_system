@@ -1,0 +1,4 @@
+# 在已安装 Ascend 驱动、CANN/NNAL、Python 3.10-3.12 的 openEuler 22.03 环境安装。
+# 以 vllm-ascend 为根依赖解析 vLLM / torch / torch-npu，离线部署必须使用同一次 download 产物。
+vllm-ascend==0.18.0
+modelscope==1.26.0

@@ -1,0 +1,17 @@
+[Unit]
+Description=vLLM Qwen OpenAI-compatible API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/aivuln
+Environment=MODEL_PATH=/opt/aivuln/models/Qwen2.5-Coder-7B-Instruct
+Environment=ASCEND_RT_VISIBLE_DEVICES=0,1,2,3
+Environment=TENSOR_PARALLEL_SIZE=4
+ExecStart=/opt/aivuln/scripts/start_vllm.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+

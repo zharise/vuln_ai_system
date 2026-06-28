@@ -1,0 +1,12 @@
+services:
+  aivuln-api:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+    ports:
+      - "18080:18080"
+    volumes:
+      - ../../data:/opt/aivuln/data
+      - ../../models:/opt/aivuln/models
+    restart: unless-stopped
+

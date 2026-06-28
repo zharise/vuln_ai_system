@@ -1,0 +1,3 @@
+2026-06-28 09:37:16,814 INFO aivuln.static_scan.scanner static findings: 0
+2026-06-28 09:37:16,820 INFO aivuln.dynamic_scan.prober dynamic findings: 0
+2026-06-28 09:37:16,820 INFO __main__ run complete: C:\Users\96485\Desktop\AI-POC\vuln_ai_system\data\runs\20260628_093716 findings=0
